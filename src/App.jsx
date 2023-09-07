@@ -1,19 +1,29 @@
-import { Viewer, Entity, PointGraphics, EntityDescription } from "resium";
-import { Cartesian3 } from "cesium";
-
-const position = Cartesian3.fromDegrees(-74.0707383, 40.7117244, 100);
+import { Route, Routes, Link, useLocation } from "react-router-dom";
+import EntityPreview from "./pages/EntityPreview";
+import Home from "./pages/Home";
 
 function App() {
+  const pageArray = ["/entity"];
+  const location = useLocation();
   return (
-    <Viewer full>
-      <Entity position={position} name="Country">
-        <PointGraphics pixelSize={10} />
-        <EntityDescription>
-          <h1>Hello, world.</h1>
-          <p>JSX is available here!</p>
-        </EntityDescription>
-      </Entity>
-    </Viewer>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/entity" element={<EntityPreview />} />
+      </Routes>
+      <ul>
+        {pageArray.map((item, index) => {
+          return (
+            <li
+              key={index}
+              className={location.pathname === item ? "active" : ""}
+            >
+              <Link to={item}>{item}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 }
 
