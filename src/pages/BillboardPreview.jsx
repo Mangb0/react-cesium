@@ -1,4 +1,4 @@
-import { Viewer, Billboard, BillboardCollection } from "resium";
+import { Viewer, Entity, BillboardGraphics } from "resium";
 
 import test from "../assets/testImg.png";
 
@@ -10,13 +10,13 @@ const BillboardPreview = () => {
       className="viewer-container"
       terrainProvider={createWorldTerrainAsync()}
     >
-      <BillboardCollection>
-        <Billboard
-          position={Cartesian3.fromDegrees(-75.59777, 40.03883)}
-          image={test}
-          scale={0.1}
-        />
-      </BillboardCollection>
+      <Entity
+        name="BillboardTest"
+        description="Billboard show Image"
+        position={Cartesian3.fromDegrees(-75.59777, 40.03883)}
+      >
+        <BillboardGraphics image={test} scale={0.1} />
+      </Entity>
     </Viewer>
   );
 };
