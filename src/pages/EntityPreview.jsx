@@ -3,7 +3,10 @@ import { Cartesian3, createWorldTerrainAsync } from "cesium";
 
 const EntityPreview = () => {
   return (
-    <Viewer full terrainProvider={createWorldTerrainAsync()}>
+    <Viewer
+      className="viewer-container"
+      terrainProvider={createWorldTerrainAsync()}
+    >
       <Entity
         name="Korea"
         description="Hello Korea!"

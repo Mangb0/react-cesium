@@ -6,7 +6,10 @@ import { Cartesian3, createWorldTerrainAsync } from "cesium";
 
 const BillboardPreview = () => {
   return (
-    <Viewer full terrainProvider={createWorldTerrainAsync()}>
+    <Viewer
+      className="viewer-container"
+      terrainProvider={createWorldTerrainAsync()}
+    >
       <BillboardCollection>
         <Billboard
           position={Cartesian3.fromDegrees(-75.59777, 40.03883)}

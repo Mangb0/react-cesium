@@ -12,7 +12,7 @@ function IonResourcePreview() {
 
   return (
     <Viewer
-      full
+      className="viewer-container"
       ref={(e) => {
         viewer = e && e.cesiumElement;
       }}

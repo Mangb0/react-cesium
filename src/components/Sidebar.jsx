@@ -1,14 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
-import ResiumView from "./pages/ResiumView";
-import "./App.css";
 
-function App() {
-  const pageArray = ["/entity", "/ion", "/billboard"];
+const Sidebar = () => {
+  const pages = ["/", "/entity", "/ion", "/billboard"];
   const location = useLocation();
+
   return (
-    <div className="app-container">
+    <div className="sidebar">
+      <h3>Sidebar</h3>
       <ul>
-        {pageArray.map((item, index) => {
+        {pages.map((item, index) => {
           return (
             <li
               key={index}
@@ -19,9 +19,8 @@ function App() {
           );
         })}
       </ul>
-      <ResiumView />
     </div>
   );
-}
+};
 
-export default App;
+export default Sidebar;
