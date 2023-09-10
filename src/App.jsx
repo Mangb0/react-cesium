@@ -3,7 +3,7 @@ import ResiumView from "./pages/ResiumView";
 import "./App.css";
 
 function App() {
-  const pageArray = ["/entity", "/ion", "/billboard", "/mapPins"];
+  const pageArray = ["/entity", "/ion", "/billboard", "/mapPins", "/graphics"];
   const location = useLocation();
   return (
     <div className="app-container">
