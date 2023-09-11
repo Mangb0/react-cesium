@@ -6,6 +6,7 @@ const Sidebar = () => {
     ion: ["/ion"],
     billboard: ["/billboard"],
     mapPins: ["/mapPins"],
+    clock: ["/clock"],
   };
   const location = useLocation();
 

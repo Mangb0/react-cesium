@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import IonResourcePreview from "../pages/IonResourcePreview.jsx";
 import BillboardPreview from "../pages/BillboardPreview";
 import MapPinsPreview from "../pages/MapPinsPreview";
+import ClockPreview from "../pages/ClockPreview";
 import NotFound from "../pages/NotFound";
 
 function ResiumView() {
@@ -16,6 +17,7 @@ function ResiumView() {
         <Route path="/ion" element={<IonResourcePreview />} />
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
+        <Route path="/clock" element={<ClockPreview />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
