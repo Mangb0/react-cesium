@@ -1,24 +1,35 @@
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-  const pages = ["/", "/entity", "/ion", "/billboard"];
+  const pageObj = {
+    entity: ["/entity", "/graphics"],
+    ion: ["/ion"],
+    billboard: ["/billboard"],
+    mapPins: ["/mapPins"],
+  };
   const location = useLocation();
 
   return (
     <div className="sidebar">
-      <h3>Sidebar</h3>
-      <ul>
-        {pages.map((item, index) => {
-          return (
-            <li
-              key={index}
-              className={location.pathname === item ? "active" : ""}
-            >
-              <Link to={item}>{item}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <h2>Sidebar</h2>
+      {Object.keys(pageObj).map((key) => (
+        <div key={key}>
+          <h3>{key}</h3>
+          <ul>
+            {pageObj[key].map((page, index) => (
+              <button
+                key={index}
+                className={[
+                  "btn",
+                  location.pathname === page ? "active" : "",
+                ].join(" ")}
+              >
+                <Link to={page}>{[...page].splice(1, page.length - 1)}</Link>
+              </button>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 };

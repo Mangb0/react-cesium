@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import EntityPreview from "./EntityPreview";
-import Home from "./Home";
-import IonResourcePreview from "./IonResourcePreview.jsx";
-import BillboardPreview from "./BillboardPreview";
-import MapPinsPreview from "./MapPinsPreview";
-import EntityGraphics from "./EntityGraphics";
+import EntityPreview from "../pages/EntityPreview";
+import Home from "../pages/Home";
+import IonResourcePreview from "../pages/IonResourcePreview.jsx";
+import BillboardPreview from "../pages/BillboardPreview";
+import MapPinsPreview from "../pages/MapPinsPreview";
+import EntityGraphics from "../pages/EntityGraphics";
+import NotFound from "../pages/NotFound";
 
 function ResiumView() {
   return (
@@ -16,6 +17,7 @@ function ResiumView() {
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/graphics" element={<EntityGraphics />} />
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );
