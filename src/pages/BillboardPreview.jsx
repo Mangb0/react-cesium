@@ -1,6 +1,6 @@
 import { Viewer, Entity, BillboardGraphics } from "resium";
 
-import test from "../assets/testImg.png";
+import test from "/src/assets/testImg.png";
 
 import { Cartesian3, createWorldTerrainAsync } from "cesium";
 
