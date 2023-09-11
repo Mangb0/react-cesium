@@ -6,7 +6,8 @@ const Sidebar = () => {
     ion: ["/ion"],
     billboard: ["/billboard"],
     mapPins: ["/mapPins"],
-    clock: ["/clock"],
+    Clock: ["/clock"],
+    tiles: ["/GooglePhotorealistic3DTiles"],
   };
   const location = useLocation();
 

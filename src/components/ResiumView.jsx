@@ -4,8 +4,9 @@ import Home from "../pages/Home";
 import IonResourcePreview from "../pages/IonResourcePreview.jsx";
 import BillboardPreview from "../pages/BillboardPreview";
 import MapPinsPreview from "../pages/MapPinsPreview";
-import ClockPreview from "../pages/ClockPreview";
 import NotFound from "../pages/NotFound";
+import ClockPreview from "../pages/ClockPreview";
+import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
 
 function ResiumView() {
   return (
@@ -18,6 +19,10 @@ function ResiumView() {
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/clock" element={<ClockPreview />} />
+        <Route
+          path="/GooglePhotorealistic3DTiles"
+          element={<GooglePhotorealistic3DTiles />}
+        />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
