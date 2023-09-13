@@ -7,7 +7,7 @@ const Sidebar = () => {
     billboard: ["/billboard"],
     mapPins: ["/mapPins"],
     Clock: ["/clock"],
-    tiles: ["/GooglePhotorealistic3DTiles"],
+    tiles: ["/GooglePhotorealistic3DTiles", "/Cesium3DTilesetPreview"],
   };
   const location = useLocation();
 

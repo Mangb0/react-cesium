@@ -7,6 +7,7 @@ import MapPinsPreview from "../pages/MapPinsPreview";
 import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
 import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
+import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
 
 function ResiumView() {
   return (
@@ -19,6 +20,10 @@ function ResiumView() {
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/clock" element={<ClockPreview />} />
+        <Route
+          path="/Cesium3DTilesetPreview"
+          element={<Cesium3DTilesetPreview />}
+        />
         <Route
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
