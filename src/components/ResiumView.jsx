@@ -8,8 +8,9 @@ import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
 import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
 import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
+import SnowPreview from "../pages/SnowPreview";
 
-function ResiumView() {
+const ResiumView = () => {
   return (
     <>
       <Routes>
@@ -28,10 +29,11 @@ function ResiumView() {
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
         />
+        <Route path="/snow" element={<SnowPreview />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );
-}
+};
 
 export default ResiumView;
