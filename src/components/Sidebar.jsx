@@ -9,6 +9,7 @@ const Sidebar = () => {
     Clock: ["/clock"],
     tiles: ["/GooglePhotorealistic3DTiles", "/Cesium3DTilesetPreview"],
     particle: ["/snow"],
+    CustomDataSource: ["/CustomDataSource"],
   };
   const location = useLocation();
 

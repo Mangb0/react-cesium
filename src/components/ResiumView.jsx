@@ -9,6 +9,7 @@ import ClockPreview from "../pages/ClockPreview";
 import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
 import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
 import SnowPreview from "../pages/SnowPreview";
+import EntityClusterPreview from "../pages/EntityClusterPreview";
 
 const ResiumView = () => {
   return (
@@ -30,6 +31,7 @@ const ResiumView = () => {
           element={<GooglePhotorealistic3DTiles />}
         />
         <Route path="/snow" element={<SnowPreview />} />
+        <Route path="/CustomDataSource" element={<EntityClusterPreview />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
