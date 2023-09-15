@@ -1,24 +1,16 @@
-import { Viewer, Cesium3DTileset } from "resium";
 import { useRef } from "react";
-import tileset from "/src/assets/tileset/tileset.json";
-
+import { Cesium3DTileset, Viewer } from "resium";
 const Cesium3DTilesetPreview = () => {
-  let ref = useRef(null);
-
+  const ref = useRef(null);
   const handleReady = (tileset) => {
-    if (ref) {
-      ref.zoomTo(tileset);
+    if (ref.current.cesiumElement) {
+      ref.current.cesiumElement.zoomTo(tileset);
     }
   };
 
   return (
-    <Viewer
-      className="viewer-container"
-      ref={(e) => {
-        ref = e && e.cesiumElement;
-      }}
-    >
-      <Cesium3DTileset url={tileset} onReady={handleReady} />
+    <Viewer className="viewer-container" ref={ref}>
+      <Cesium3DTileset url="./tileset/tileset.json" onReady={handleReady} />
     </Viewer>
   );
 };

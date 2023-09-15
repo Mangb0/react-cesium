@@ -22,10 +22,7 @@ const ResiumView = () => {
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/clock" element={<ClockPreview />} />
-        <Route
-          path="/Cesium3DTilesetPreview"
-          element={<Cesium3DTilesetPreview />}
-        />
+        <Route path="/Cesium3DTileset" element={<Cesium3DTilesetPreview />} />
         <Route
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
