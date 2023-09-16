@@ -10,6 +10,7 @@ const Sidebar = () => {
     tiles: ["/GooglePhotorealistic3DTiles", "/Cesium3DTileset"],
     particle: ["/snow"],
     CustomDataSource: ["/CustomDataSource"],
+    etc: ["/moon"],
   };
   const location = useLocation();
 
