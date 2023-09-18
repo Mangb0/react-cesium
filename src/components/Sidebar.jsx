@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const pageObj = {
@@ -13,6 +13,7 @@ const Sidebar = () => {
     etc: ["/moon"],
   };
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className="sidebar">
@@ -28,8 +29,9 @@ const Sidebar = () => {
                   "btn",
                   location.pathname === page ? "active" : "",
                 ].join(" ")}
+                onClick={() => navigate(page)}
               >
-                <Link to={page}>{[...page].splice(1, page.length - 1)}</Link>
+                {[...page].splice(1, page.length - 1)}
               </button>
             ))}
           </ul>

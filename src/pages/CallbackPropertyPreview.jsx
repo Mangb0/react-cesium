@@ -19,7 +19,7 @@ const CallbackPropertyPreview = () => {
   }, []);
 
   return (
-    <Viewer full>
+    <Viewer className="viewer-container">
       <Entity name="MyEntity" position={entityPosition} selected>
         <BillboardGraphics image={"/src/assets/testImg.png"} scale={0.5} />
       </Entity>
