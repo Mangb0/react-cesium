@@ -1,28 +1,87 @@
-import { Cartesian3, CallbackProperty, Color, JulianDate } from "cesium";
-import { Entity, Viewer, PolylineGraphics, BillboardGraphics } from "resium";
-import { useEffect, useState } from "react";
+import {
+  Cartesian3,
+  CallbackProperty,
+  Color,
+  JulianDate,
+  Ellipsoid,
+  Cartographic,
+  EllipsoidGeodesic,
+  Cartesian2,
+} from "cesium";
+import { Entity, Viewer, PolylineGraphics, Clock } from "resium";
 
 const CallbackPropertyPreview = () => {
-  const [entityPosition, setEntityPosition] = useState(new Cartesian3());
+  const startLatitude = 35;
+  const startLongitude = -120;
+  const startTime = JulianDate.now();
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const time = new JulianDate.now();
-      const offset = Math.sin(time.secondsOfDay) * 3000.0;
-      setEntityPosition(new Cartesian3.fromDegrees(-75.59777, offset, 100));
-      console.log(offset);
-    }, 1000);
+  const redLinePositions = new CallbackProperty((time, result) => {
+    const seconds = JulianDate.secondsDifference(time, startTime);
+    const offset = seconds * 0.001;
+    const endLongitude = startLongitude + offset;
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+    return Cartesian3.fromDegreesArray(
+      [startLongitude, startLatitude, endLongitude, startLatitude],
+      Ellipsoid.WGS84,
+      result
+    );
+  }, false);
+
+  const startCartographic = new Cartographic.fromDegrees(
+    startLongitude,
+    startLatitude
+  );
+
+  let endCartographic = new Cartographic();
+  const stratch = new Cartographic();
+  const geodesic = new EllipsoidGeodesic();
+
+  const getLength = (time, result) => {
+    const endPoint = redLinePositions.getValue(time, result)[1];
+    endCartographic = Cartographic.fromCartesian(endPoint);
+
+    geodesic.setEndPoints(startCartographic, endCartographic);
+    const lengthInMeters = Math.round(geodesic.surfaceDistance);
+    return `${(lengthInMeters / 1000).toFixed(1)} km`;
+  };
+
+  const getMidpoint = (time, result) => {
+    const endPoint = redLinePositions.getValue(time, result)[1];
+    endCartographic = Cartographic.fromCartesian(endPoint);
+
+    geodesic.setEndPoints(startCartographic, endCartographic);
+    const midpointCartographic = geodesic.interpolateUsingFraction(
+      0.5,
+      stratch
+    );
+    return Cartesian3.fromRadians(
+      midpointCartographic.longitude,
+      midpointCartographic.latitude
+    );
+  };
 
   return (
     <Viewer className="viewer-container">
-      <Entity name="MyEntity" position={entityPosition} selected>
-        <BillboardGraphics image={"/src/assets/testImg.png"} scale={0.5} />
+      <Clock
+        shouldAnimate // Animation on by default
+      />
+      <Entity name="MyEntity" selected>
+        <PolylineGraphics
+          positions={redLinePositions}
+          width={5}
+          material={Color.RED}
+        />
       </Entity>
+      <Entity
+        name="Label"
+        position={new CallbackProperty(getMidpoint, false)}
+        label={{
+          text: new CallbackProperty(getLength, false),
+          font: "20px sans-serif",
+          pixelOffset: new Cartesian2(0, 20),
+        }}
+        tracked
+      />
     </Viewer>
   );
 };
