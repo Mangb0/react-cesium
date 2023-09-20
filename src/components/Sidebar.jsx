@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const pageObj = {
-    entity: ["/entity", "/graphics", "/CallbackProperty"],
+    entity: ["/entity", "/AnimatedCanvas", "/graphics", "/CallbackProperty"],
     ion: ["/ion"],
     billboard: ["/billboard"],
     mapPins: ["/mapPins"],

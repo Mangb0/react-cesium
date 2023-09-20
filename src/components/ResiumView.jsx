@@ -12,6 +12,7 @@ import SnowPreview from "../pages/SnowPreview";
 import EntityClusterPreview from "../pages/EntityClusterPreview";
 import MoonPreview from "../pages/MoonPreview";
 import CallbackPropertyPreview from "../pages/CallbackPropertyPreview";
+import AnimatedCanvasPreview from "../pages/AnimatedCanvasPreview";
 
 const ResiumView = () => {
   return (
@@ -33,6 +34,7 @@ const ResiumView = () => {
         <Route path="/CustomDataSource" element={<EntityClusterPreview />} />
         <Route path="/moon" element={<MoonPreview />} />
         <Route path="/CallbackProperty" element={<CallbackPropertyPreview />} />
+        <Route path="/AnimatedCanvas" element={<AnimatedCanvasPreview />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
