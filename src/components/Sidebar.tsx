@@ -1,16 +1,15 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
-  const pageObj = {
-    entity: ["/entity", "/AnimatedCanvas", "/graphics", "/CallbackProperty"],
-    ion: ["/ion"],
+  const pageObj: Record<string, string[]> = {
+    entity: ["/entity", "/graphics", "/AnimatedCanvas", "/CallbackProperty"],
+    ion: ["/ion", "/IonPointCloud"],
     billboard: ["/billboard"],
     mapPins: ["/mapPins"],
     Clock: ["/clock"],
     tiles: ["/GooglePhotorealistic3DTiles", "/Cesium3DTileset"],
+    camera: ["/camera"],
     particle: ["/snow"],
-    CustomDataSource: ["/CustomDataSource"],
-    etc: ["/moon"],
   };
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,6 +30,7 @@ const Sidebar = () => {
                 ].join(" ")}
                 onClick={() => navigate(page)}
               >
+                {/* <Link to={page}>{[...page].splice(1, page.length - 1)}</Link> */}
                 {[...page].splice(1, page.length - 1)}
               </button>
             ))}

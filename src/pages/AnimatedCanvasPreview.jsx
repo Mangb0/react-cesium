@@ -65,7 +65,8 @@ const AnimatedCanvasPreview = () => {
       <CanvasEntity
         name="test"
         description="test"
-        position={Cartesian3.fromDegrees(0, 0, 0)}
+        position={Cartesian3.fromDegrees(-74.0707383, 40.7117244, 100)}
+        selected
       />
     </Viewer>
   );
