@@ -7,7 +7,7 @@ import IonResourcePreview from "../pages/IonResourcePreview";
 import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
 // import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
-// import CameraPreview from "../pages/CameraPreview";
+import CameraPreview from "../pages/CameraPreview";
 // import IonPointCloudPreview from "../pages/IonPointCloudPreview";
 // import SnowPreview from "../pages/SnowPreview";
 import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
@@ -29,7 +29,7 @@ const ResiumView = () => {
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
         /> */}
-        {/* <Route path="/camera" element={<CameraPreview />} /> */}
+        <Route path="/camera" element={<CameraPreview />} />
         {/* <Route path="/IonPointCloud" element={<IonPointCloudPreview />} /> */}
         {/* <Route path="/snow" element={<SnowPreview />} /> */}
         <Route path="/Cesium3DTileset" element={<Cesium3DTilesetPreview />} />
