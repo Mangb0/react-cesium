@@ -5,7 +5,7 @@ import Home from "../pages/Home";
 // import BillboardPreview from "../pages/BillboardPreview";
 // import MapPinsPreview from "../pages/MapPinsPreview";
 import NotFound from "../pages/NotFound";
-// import ClockPreview from "../pages/ClockPreview";
+import ClockPreview from "../pages/ClockPreview";
 // import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
 // import CameraPreview from "../pages/CameraPreview";
 // import IonPointCloudPreview from "../pages/IonPointCloudPreview";
@@ -24,7 +24,7 @@ const ResiumView = () => {
         {/* <Route path="/ion" element={<IonResourcePreview />} /> */}
         {/* <Route path="/billboard" element={<BillboardPreview />} /> */}
         {/* <Route path="/mapPins" element={<MapPinsPreview />} /> */}
-        {/* <Route path="/clock" element={<ClockPreview />} /> */}
+        <Route path="/clock" element={<ClockPreview />} />
         {/* <Route
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
