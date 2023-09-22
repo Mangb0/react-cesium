@@ -9,7 +9,7 @@ const initCanvas = () => {
   return can;
 };
 
-const renderCanvas = (can, p) => {
+const renderCanvas = (can: HTMLCanvasElement, p: number) => {
   const c = can.getContext("2d");
   if (!c) return;
   c.clearRect(0, 0, can.width, can.height);
@@ -26,10 +26,17 @@ const renderCanvas = (can, p) => {
   c.fill();
 };
 
-const CanvasEntity = (props) => {
-  const c1 = useMemo(initCanvas, []);
-  const c2 = useMemo(initCanvas, []);
-  const [image, setImage] = useState();
+type CanvasEntityProps = {
+  name?: string;
+  description?: string;
+  position?: Cartesian3;
+  selected?: boolean;
+};
+
+const CanvasEntity = (props: CanvasEntityProps) => {
+  const c1 = useMemo<HTMLCanvasElement>(initCanvas, []);
+  const c2 = useMemo<HTMLCanvasElement>(initCanvas, []);
+  const [image, setImage] = useState<HTMLCanvasElement>();
   const progress = useRef(0);
 
   useEffect(() => {
