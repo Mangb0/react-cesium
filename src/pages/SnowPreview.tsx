@@ -7,6 +7,7 @@ import {
   Color,
   createWorldTerrainAsync,
   Math as CesiumMath,
+  Particle,
 } from "cesium";
 import { useMemo, useRef, useCallback } from "react";
 
@@ -40,7 +41,7 @@ const SnowParticle = () => {
 
   // 눈 생성기
   const onUpdate = useCallback(
-    (particle) => {
+    (particle: Particle) => {
       if (!scene) return;
 
       // 눈 중력
