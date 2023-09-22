@@ -10,7 +10,7 @@ import NotFound from "../pages/NotFound";
 // import CameraPreview from "../pages/CameraPreview";
 // import IonPointCloudPreview from "../pages/IonPointCloudPreview";
 // import SnowPreview from "../pages/SnowPreview";
-// import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
+import Cesium3DTilesetPreview from "../pages/Cesium3DTilesetPreview";
 // import CallbackPropertyPreview from "../pages/CallbackPropertyPreview";
 import AnimatedCanvasPreview from "../pages/AnimatedCanvasPreview";
 
@@ -32,7 +32,7 @@ const ResiumView = () => {
         {/* <Route path="/camera" element={<CameraPreview />} /> */}
         {/* <Route path="/IonPointCloud" element={<IonPointCloudPreview />} /> */}
         {/* <Route path="/snow" element={<SnowPreview />} /> */}
-        {/* <Route path="/Cesium3DTileset" element={<Cesium3DTilesetPreview />} /> */}
+        <Route path="/Cesium3DTileset" element={<Cesium3DTilesetPreview />} />
         {/* <Route path="/CallbackProperty" element={<CallbackPropertyPreview />} /> */}
         <Route path="/AnimatedCanvas" element={<AnimatedCanvasPreview />} />
         <Route path="*" element={<NotFound />}></Route>
