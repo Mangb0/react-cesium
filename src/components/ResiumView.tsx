@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import EntityPreview, { EntityGraphics } from "../pages/EntityPreview";
 import Home from "../pages/Home";
 import IonResourcePreview from "../pages/IonResourcePreview";
-// import BillboardPreview from "../pages/BillboardPreview";
+import BillboardPreview from "../pages/BillboardPreview";
 // import MapPinsPreview from "../pages/MapPinsPreview";
 import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
@@ -22,7 +22,7 @@ const ResiumView = () => {
         <Route path="/entity" element={<EntityPreview />} />
         <Route path="/graphics" element={<EntityGraphics />} />
         <Route path="/ion" element={<IonResourcePreview />} />
-        {/* <Route path="/billboard" element={<BillboardPreview />} /> */}
+        <Route path="/billboard" element={<BillboardPreview />} />
         {/* <Route path="/mapPins" element={<MapPinsPreview />} /> */}
         <Route path="/clock" element={<ClockPreview />} />
         {/* <Route
