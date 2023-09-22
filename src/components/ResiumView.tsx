@@ -3,7 +3,7 @@ import EntityPreview, { EntityGraphics } from "../pages/EntityPreview";
 import Home from "../pages/Home";
 import IonResourcePreview from "../pages/IonResourcePreview";
 import BillboardPreview from "../pages/BillboardPreview";
-// import MapPinsPreview from "../pages/MapPinsPreview";
+import MapPinsPreview from "../pages/MapPinsPreview";
 import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
 // import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
@@ -23,7 +23,7 @@ const ResiumView = () => {
         <Route path="/graphics" element={<EntityGraphics />} />
         <Route path="/ion" element={<IonResourcePreview />} />
         <Route path="/billboard" element={<BillboardPreview />} />
-        {/* <Route path="/mapPins" element={<MapPinsPreview />} /> */}
+        <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/clock" element={<ClockPreview />} />
         {/* <Route
           path="/GooglePhotorealistic3DTiles"
