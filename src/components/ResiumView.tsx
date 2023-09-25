@@ -6,7 +6,7 @@ import BillboardPreview from "../pages/BillboardPreview";
 import MapPinsPreview from "../pages/MapPinsPreview";
 import NotFound from "../pages/NotFound";
 import ClockPreview from "../pages/ClockPreview";
-// import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
+import GooglePhotorealistic3DTiles from "../pages/GooglePhotorealistic3DTilesPreview";
 import CameraPreview from "../pages/CameraPreview";
 import IonPointCloudPreview from "../pages/IonPointCloudPreview";
 import SnowPreview from "../pages/SnowPreview";
@@ -25,10 +25,10 @@ const ResiumView = () => {
         <Route path="/billboard" element={<BillboardPreview />} />
         <Route path="/mapPins" element={<MapPinsPreview />} />
         <Route path="/clock" element={<ClockPreview />} />
-        {/* <Route
+        <Route
           path="/GooglePhotorealistic3DTiles"
           element={<GooglePhotorealistic3DTiles />}
-        /> */}
+        />
         <Route path="/camera" element={<CameraPreview />} />
         <Route path="/IonPointCloud" element={<IonPointCloudPreview />} />
         <Route path="/snow" element={<SnowPreview />} />
