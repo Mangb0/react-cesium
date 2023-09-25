@@ -7,6 +7,7 @@ import {
   Cartographic,
   EllipsoidGeodesic,
   Cartesian2,
+  PositionProperty,
 } from "cesium";
 import { Entity, Viewer, PolylineGraphics, Clock } from "resium";
 
@@ -24,10 +25,10 @@ const CallbackPropertyPreview = () => {
       [startLongitude, startLatitude, endLongitude, startLatitude],
       Ellipsoid.WGS84,
       result
-    );
+    ) as Cartesian3[]; // 여기서 명시적으로 캐스팅
   }, false);
 
-  const startCartographic = new Cartographic.fromDegrees(
+  const startCartographic = Cartographic.fromDegrees(
     startLongitude,
     startLatitude
   );
@@ -36,8 +37,8 @@ const CallbackPropertyPreview = () => {
   const stratch = new Cartographic();
   const geodesic = new EllipsoidGeodesic();
 
-  const getLength = (time, result) => {
-    const endPoint = redLinePositions.getValue(time, result)[1];
+  const getLength = (time: JulianDate) => {
+    const endPoint = (redLinePositions.getValue(time) as Cartesian3[])[1];
     endCartographic = Cartographic.fromCartesian(endPoint);
 
     geodesic.setEndPoints(startCartographic, endCartographic);
@@ -45,8 +46,8 @@ const CallbackPropertyPreview = () => {
     return `${(lengthInMeters / 1000).toFixed(1)} km`;
   };
 
-  const getMidpoint = (time, result) => {
-    const endPoint = redLinePositions.getValue(time, result)[1];
+  const getMidpoint = (time: JulianDate) => {
+    const endPoint = (redLinePositions.getValue(time) as Cartesian3[])[1];
     endCartographic = Cartographic.fromCartesian(endPoint);
 
     geodesic.setEndPoints(startCartographic, endCartographic);
@@ -59,13 +60,16 @@ const CallbackPropertyPreview = () => {
       midpointCartographic.latitude
     );
   };
+  console.log(
+    typeof new CallbackProperty((time) => getMidpoint(time), false) +
+      "\n" +
+      new CallbackProperty((time) => getMidpoint(time), false).value
+  );
 
   return (
     <Viewer className="viewer-container">
-      <Clock
-        shouldAnimate // Animation on by default
-      />
-      <Entity name="MyEntity" selected>
+      <Clock shouldAnimate={true} />
+      <Entity name="MyEntity" selected={true}>
         <PolylineGraphics
           positions={redLinePositions}
           width={5}
@@ -74,13 +78,13 @@ const CallbackPropertyPreview = () => {
       </Entity>
       <Entity
         name="Label"
-        position={new CallbackProperty(getMidpoint, false)}
+        position={new CallbackProperty((time) => getMidpoint(time), false)}
         label={{
-          text: new CallbackProperty(getLength, false),
+          text: new CallbackProperty((time) => getLength(time), false),
           font: "20px sans-serif",
           pixelOffset: new Cartesian2(0, 20),
         }}
-        tracked
+        tracked={true}
       />
     </Viewer>
   );
