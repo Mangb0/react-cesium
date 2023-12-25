@@ -2,6 +2,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const pageObj: Record<string, string[]> = {
+    cesium: [
+      "/billboardCesium",
+      "/Cesium3DTilesetPreviewCesium",
+      "/cesiumCamera",
+      "/IonPointCloudCesium",
+      "/ionCesium",
+      "/mapPinsCesium",
+    ],
+    test: ["/fileUpload"],
     entity: ["/entity", "/graphics", "/AnimatedCanvas", "/CallbackProperty"],
     ion: ["/ion", "/IonPointCloud"],
     billboard: ["/billboard"],

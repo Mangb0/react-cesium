@@ -1,13 +1,6 @@
 import { Viewer, Cesium3DTileset, CesiumComponentRef } from "resium";
-import {
-  IonResource,
-  Ion,
-  Cesium3DTileStyle,
-  Viewer as CesiumViewer,
-} from "cesium";
+import { IonResource, Cesium3DTileStyle, Viewer as CesiumViewer } from "cesium";
 import { useRef } from "react";
-
-Ion.defaultAccessToken = import.meta.env.VITE_TEST_DATA;
 
 const IonPointCloudPreview = () => {
   const ref = useRef<CesiumComponentRef<CesiumViewer>>(null);
